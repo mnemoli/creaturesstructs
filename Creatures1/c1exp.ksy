@@ -64,12 +64,12 @@ types:
         type: str
         encoding: UTF-8
         size: len
-      - id: delim
-        size: 1
+      - id: len2
+        type: u1
       - id: word2
         type: str
         encoding: UTF-8
-        size: len
+        size: len2
       - id: otherstuff
         size: 4
   lobe:
