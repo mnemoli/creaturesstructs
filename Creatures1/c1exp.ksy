@@ -53,6 +53,8 @@ seq:
     size: 6
   - id: biochemmagic
     contents: CBiochemistry
+  - id: biochemistry
+    type: biochem
   - id: restoffile
     size-eos: true
 types:
@@ -70,7 +72,7 @@ types:
         type: str
         encoding: UTF-8
         size: len2
-      - id: otherstuff
+      - id: unknown
         size: 4
   lobe:
     params:
@@ -194,7 +196,6 @@ types:
         type: u1
       - id: acccount
         type: u4
-        
   dendrite:
     seq:
       - id: id
@@ -210,4 +211,96 @@ types:
       - id: ltw
         type: u1
       - id: str
+        type: u1
+  biochem:
+    seq:
+      - id: unknown
+        type: u2
+      - id: emitternum
+        type: u4
+      - id: receptornum
+        type: u4
+      - id: reactionnum
+        type: u4
+      - id: chems
+        type: chem
+        repeat: expr
+        repeat-expr: 256
+      - id: emitters
+        type: emitter
+        repeat: expr
+        repeat-expr: emitternum
+      - id: receptors
+        type: receptor
+        repeat: expr
+        repeat-expr: receptornum
+      - id: reactions
+        type: reaction
+        repeat: expr
+        repeat-expr: reactionnum
+      - id: unknown2
+        type: u1
+        repeat: expr
+        repeat-expr: 33
+  emitter:
+    seq:
+      - id: organ
+        type: u1
+      - id: tissue
+        type: u1
+      - id: locus
+        type: u1
+      - id: chemical
+        type: u1
+      - id: rate
+        type: u1
+      - id: gain
+        type: u1
+      - id: threshold
+        type: u1
+      - id: flags
+        type: u1
+  receptor:
+    seq:
+      - id: organ
+        type: u1
+      - id: tissue
+        type: u1
+      - id: locus
+        type: u1
+      - id: chemical
+        type: u1
+      - id: threshold
+        type: u1
+      - id: nominal
+        type: u1
+      - id: gain
+        type: u1
+      - id: flags
+        type: u1
+  chem:
+    seq:
+      - id: amount
+        type: u1
+      - id: halflife
+        type: u1
+  reaction:
+    seq:
+      - id: reactant1amt
+        type: u1
+      - id: reactant1chem
+        type: u1
+      - id: reactant2amt
+        type: u1
+      - id: reactant2chem
+        type: u1
+      - id: reactionrate
+        type: u1
+      - id: product1amt
+        type: u1
+      - id: product1chem
+        type: u1
+      - id: product2amt
+        type: u1
+      - id: productt2chem
         type: u1
