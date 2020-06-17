@@ -31,6 +31,10 @@ seq:
     type: lobe(_index)
     repeat: expr
     repeat-expr: lobes
+  - id: neurondetails
+    type: neuronsection(_index)
+    repeat: expr
+    repeat-expr: 7
     
 types:
   lobe:
@@ -66,12 +70,8 @@ types:
         size: 4
       - id: d0
         type: d0
-      - id: denpadding
-        size: 96-14-9-7-33
       - id: d1
         type: d0
-      - id: morepadding
-        size: 36+14+9+7-33
       - id: cells
         type: u4
       - id: dendritestothislobe
@@ -114,5 +114,60 @@ types:
         size: 33
       - id: reinforcementrules
         size: 12
-      # - id: something
-      #   size: 11
+      - id: unknown
+        size: 33
+  neuronsection:
+    params:
+      - id: i
+        type: u2
+    seq:
+      - id: neurons
+        type: neuron
+        repeat: expr
+        repeat-expr: _parent.lobedetails[i].cells
+  neuron:
+    seq:
+      - id: x
+        type: u1
+      - id: y
+        type: u1
+      - id: output
+        type: u1
+      - id: state
+        type: u1
+      - id: pad
+        type: u4
+      - id: d0dendriteheader
+        type: dendriteheader
+      - id: d0dendrites
+        type: dendrite
+        repeat: expr
+        repeat-expr: d0dendriteheader.numofdendritesattached
+      - id: d1dendriteheader
+        type: dendriteheader
+      - id: d1dendrites
+        type: dendrite
+        repeat: expr
+        repeat-expr: d1dendriteheader.numofdendritesattached
+  dendriteheader:
+    seq:
+      - id: numofdendritesattached
+        type: u1
+      - id: acccount
+        type: u4
+  dendrite:
+    seq:
+      - id: sourcecellid
+        type: u4
+      - id: x
+        type: u1
+      - id: y
+        type: u1
+      - id: unknown
+        type: u1
+      - id: stw
+        type: u1
+      - id: ltw
+        type: u1
+      - id: str
+        type: u1
