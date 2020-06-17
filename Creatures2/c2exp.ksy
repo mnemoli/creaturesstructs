@@ -34,7 +34,7 @@ seq:
   - id: neurondetails
     type: neuronsection(_index)
     repeat: expr
-    repeat-expr: 7
+    repeat-expr: lobes
     
 types:
   lobe:
