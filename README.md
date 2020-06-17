@@ -14,5 +14,14 @@ Progress:
   - CBiochemistry - parsed, with 33 unknown bytes remaining
   - CInstinct - no parsing
   - CGenome - no parsing
+
+### Creatures 2 EXP
+
+Progress:
+  - CGallery - no parsing
+  - CBrain - parsed
+  - CBiochemistry - no parsing
+  - CInstinct - no parsing
+  - CGenome - no parsing
   
 Developed with help from the [CDR EXP File Format](http://double.nz/creatures/creatures2/expbrain.htm) page.
