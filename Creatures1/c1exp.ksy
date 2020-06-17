@@ -198,7 +198,7 @@ types:
         type: u4
   dendrite:
     seq:
-      - id: id
+      - id: sourcecellid
         type: u4
       - id: x
         type: u1
