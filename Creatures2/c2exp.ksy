@@ -19,24 +19,25 @@ seq:
     type: str
     encoding: UTF-8
     size: 4
-  - id: unparsed1
-    size: 11623
-  - id: brainmagic
-    contents: CBrain
-  - id: unknown3
-    size: 54
-  - id: lobes
-    type: u4
-  - id: lobedetails
-    type: lobe(_index)
-    repeat: expr
-    repeat-expr: lobes
-  - id: neurondetails
-    type: neuronsection(_index)
-    repeat: expr
-    repeat-expr: lobes
-    
+instances:
+  brain:
+    scan-start: CBrain
+    type: brain
 types:
+  brain:
+    seq:
+      - id: unknown
+        size: 54
+      - id: lobes
+        type: u4
+      - id: lobedetails
+        type: lobe(_index)
+        repeat: expr
+        repeat-expr: lobes
+      - id: neurondetails
+        type: neuronsection(_index)
+        repeat: expr
+        repeat-expr: lobes
   lobe:
     params:
       - id: i

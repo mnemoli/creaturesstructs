@@ -2,7 +2,7 @@
 
 [Kaitai Struct](https://kaitai.io/) formats for the Creatures games.
 
-You can use the [Kaitai Web IDE](https://ide.kaitai.io/) to try these files for yourself.
+You must use the included builds of the Kaitai compiler and JS runtime. This provides support for the scan-start key.
 
 Example files from the Creatures games are included in this repo.
 
